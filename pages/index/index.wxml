@@ -10,4 +10,19 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <view class="group">
+    <block wx:for="{{iconSize}}">
+      <icon type="success" size="{{item}}" />
+    </block>
+  </view>
+  <view class="group">
+    <block wx:for="{{iconType}}">
+      <icon type="{{item}}" size="40" />
+    </block>
+  </view>
+  <view class="group">
+    <block wx:for="{{iconSize}}">
+      <icon type="success" size="{{item}}" />
+    </block>
+  </view>
 </view>
