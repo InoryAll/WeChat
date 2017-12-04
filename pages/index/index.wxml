@@ -21,8 +21,8 @@
     </block>
   </view>
   <view class="group">
-    <block wx:for="{{iconSize}}">
-      <icon type="success" size="{{item}}" />
+    <block wx:for="{{iconColor}}">
+      <icon type="success" size="40" color="{{item}}" />
     </block>
   </view>
 </view>
