@@ -19,6 +19,20 @@ Page({
       'red', 'orange', 'yellow', 'green', 'rgb(0,255,255)', 'blue', 'purple'
     ],
     text: initData,
+    nodes: [{
+      name: 'div',
+      attrs: {
+        class: 'div_class',
+        style: 'line-height: 60px;color: red;',
+      },
+      children: [{
+        type: 'text',
+        text: 'Hello&nbsp;World!',
+      }],
+    }],
+  },
+  tap: function() {
+    console.log('tap');
   },
   add: function(e) {
     extraLine.push('extra line');

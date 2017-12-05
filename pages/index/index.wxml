@@ -32,4 +32,7 @@
       <button bindtap="remove">remove line</button>
     </view>
   </view>
+  <view>
+    <rich-text nodes="{{nodes}}" bindtap="tap"></rich-text>
+  </view>
 </view>
