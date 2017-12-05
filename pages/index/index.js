@@ -2,6 +2,9 @@
 //获取应用实例
 const app = getApp()
 
+var initData = 'this is first line!\nthis is second line!';
+var extraLine = [];
+
 Page({
   data: {
     motto: 'Hello World',
@@ -15,6 +18,21 @@ Page({
     iconColor: [
       'red', 'orange', 'yellow', 'green', 'rgb(0,255,255)', 'blue', 'purple'
     ],
+    text: initData,
+  },
+  add: function(e) {
+    extraLine.push('extra line');
+    this.setData({
+      text: initData + '\n' + extraLine.join('\n'),
+    });
+  },
+  remove: function(e) {
+    if(extraLine.length > 0) {
+      extraLine.pop();
+      this.setData({
+        text: initData + '\n' + extraLine.join('\n'),
+      });
+    }
   },
   //事件处理函数
   bindViewTap: function() {
