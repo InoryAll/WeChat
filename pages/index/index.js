@@ -4,6 +4,7 @@ const app = getApp()
 
 var initData = 'this is first line!\nthis is second line!';
 var extraLine = [];
+var types = ['default', 'primary', 'warn'];
 
 Page({
   data: {
@@ -30,6 +31,27 @@ Page({
         text: 'Hello&nbsp;World!',
       }],
     }],
+    defaultSize: 'default',
+    primarySize: 'default',
+    warnSize: 'default',
+    disabled: false,
+    plain: false,
+    loading: false,
+  },
+  setDisabled: function(e) {
+    this.setData({
+      disabled: !this.data.disabled
+    });
+  },
+  setPlain: function(e) {
+    this.setData({
+      plain: !this.data.plain
+    });
+  },
+  setLoading: function(e) {
+    this.setData({
+      loading: !this.data.loading
+    });
   },
   tap: function() {
     console.log('tap');
