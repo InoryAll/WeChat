@@ -6,13 +6,13 @@ var initData = 'this is first line!\nthis is second line!';
 var extraLine = [];
 var types = ['default', 'primary', 'warn'];
 
-Page({
+var pageObject = {
   data: {
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    iconSize: [20,30,40,50,60,70],
+    iconSize: [20, 30, 40, 50, 60, 70],
     iconType: [
       'success', 'success_no_circle', 'info', 'warn', 'waiting', 'cancel', 'download', 'search', 'clear'
     ],
@@ -38,32 +38,32 @@ Page({
     plain: false,
     loading: false,
   },
-  setDisabled: function(e) {
+  setDisabled: function (e) {
     this.setData({
       disabled: !this.data.disabled
     });
   },
-  setPlain: function(e) {
+  setPlain: function (e) {
     this.setData({
       plain: !this.data.plain
     });
   },
-  setLoading: function(e) {
+  setLoading: function (e) {
     this.setData({
       loading: !this.data.loading
     });
   },
-  tap: function() {
+  tap: function () {
     console.log('tap');
   },
-  add: function(e) {
+  add: function (e) {
     extraLine.push('extra line');
     this.setData({
       text: initData + '\n' + extraLine.join('\n'),
     });
   },
-  remove: function(e) {
-    if(extraLine.length > 0) {
+  remove: function (e) {
+    if (extraLine.length > 0) {
       extraLine.pop();
       this.setData({
         text: initData + '\n' + extraLine.join('\n'),
@@ -71,7 +71,7 @@ Page({
     }
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
@@ -82,7 +82,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -104,7 +104,7 @@ Page({
       })
     }
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
@@ -112,4 +112,17 @@ Page({
       hasUserInfo: true
     })
   }
-})
+};
+
+for(var i = 0; i < types.length; ++i) {
+  (function(type) {
+    pageObject[type] = function(e) {
+      var key = type + 'size';
+      var changeData = {};
+      changeData[key] = this.data[key] === 'default' ? 'mini' : 'default';
+      this.setData(changeData);
+    }
+  })(types[i])
+}
+
+Page(pageObject);
