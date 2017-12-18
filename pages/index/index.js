@@ -37,6 +37,10 @@ var pageObject = {
     disabled: false,
     plain: false,
     loading: false,
+    items: [
+      { name: 'USA', value: '美国' },
+      { name: 'CHN', value: '中国', checked: 'true' }
+    ]
   },
   setDisabled: function (e) {
     this.setData({
@@ -111,6 +115,9 @@ var pageObject = {
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  checkboxChange: function(e) {
+    console.log('checkbox值发生变化，值为',e.detail.value);
   }
 };
 

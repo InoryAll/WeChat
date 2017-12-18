@@ -50,4 +50,11 @@
     <button bindtap="setLoading">点击设置loading属性</button>
     <button open-type="contact">进入客服会话</button>
   </view>
+  <view>
+  <checkbox-group bindchange="checkboxChange">
+  <label class="checkbox" wx:for="{{items}}">
+    <checkbox value="{{item.name}}" checked="{{item.checked}}" />{{item.value}}
+  </label>
+  </checkbox-group>
+  </view>
 </view>
