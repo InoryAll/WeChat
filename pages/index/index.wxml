@@ -57,4 +57,9 @@
   </label>
   </checkbox-group>
   </view>
+  <view>
+    <form bindsubmit="formSubmit" bindreset="formReset">
+    
+    </form>
+  </view>
 </view>
