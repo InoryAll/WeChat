@@ -57,14 +57,15 @@
   </label>
   </checkbox-group>
   </view>
-  <view>
+  <view style="width:100%;">
     <form bindsubmit="formSubmit" bindreset="formReset">
       <view class="section section_gap">
         <view class="section_title">switch</view>
         <switch name="switch" />
       </view>
-      <view class="section section_gap">
-        <view class="section_gap"></view>
+      <view class="section section_gap" style="width:100%;">
+        <view class="section_gap">slider</view>
+        <slider name="slider" show-value=''></slider>
       </view>
     </form>
   </view>
