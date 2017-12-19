@@ -40,7 +40,9 @@ var pageObject = {
     items: [
       { name: 'USA', value: '美国' },
       { name: 'CHN', value: '中国', checked: 'true' }
-    ]
+    ],
+    focus: false,
+    inputValue: '',
   },
   setDisabled: function (e) {
     this.setData({
@@ -124,7 +126,36 @@ var pageObject = {
   },
   formReset: function(e) {
     console.log('form发生了reset事件');
-  }
+  },
+  bindButtonTab: function(e) {
+    this.setData({
+      focus: true,
+    });
+  },
+  bindKeyInput: function(e) {
+    this.setData({
+      inputValue: e.detail.value,
+    });
+  },
+  bindReplaceInput: function(e) {
+    var value = e.detail.value;
+    var pos  = e.detail.cursor;
+    if(pos != -1) {
+      // 光标在中间
+      var left = e.detail.value.slice(0, pos);
+      // 计算光标的位置
+      pos = left.replace(/11/g,'2').length;
+    }
+
+    // 直接返回对象，可以对输入进行过滤处理，同时可以控制光标的位置
+    return {
+      value: value.replace(/11/g, '2'),
+      cursor: pos,
+    };
+
+    // 或者直接返回字符串，光标在最后
+    // return value.replace(/11/g, '2');
+  },
 };
 
 for(var i = 0; i < types.length; ++i) {
