@@ -71,6 +71,13 @@
         <view class="section_title">input</view>
         <input name="input" placeholder="please input here" />
       </view>
+      <view class="section section_gap">
+        <view class="section_title">radio</view>
+        <radio-group>
+          <label><radio />radio1</label>
+          <label><radio />radio2</label>
+        </radio-group>
+      </view>
     </form>
   </view>
 </view>
