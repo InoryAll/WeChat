@@ -67,6 +67,10 @@
         <view class="section_gap">slider</view>
         <slider name="slider" show-value=''></slider>
       </view>
+      <view class="section">
+        <view class="section_title">input</view>
+        <input name="input" placeholder="please input here" />
+      </view>
     </form>
   </view>
 </view>
