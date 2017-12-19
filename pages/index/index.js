@@ -118,6 +118,12 @@ var pageObject = {
   },
   checkboxChange: function(e) {
     console.log('checkbox值发生变化，值为',e.detail.value);
+  },
+  formSubmit: function(e) {
+    console.log('form发生了subimt事件，携带数据为', e.detail.value);
+  },
+  formReset: function(e) {
+    console.log('form发生了reset事件');
   }
 };
 
