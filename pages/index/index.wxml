@@ -59,7 +59,13 @@
   </view>
   <view>
     <form bindsubmit="formSubmit" bindreset="formReset">
-    
+      <view class="section section_gap">
+        <view class="section_title">switch</view>
+        <switch name="switch" />
+      </view>
+      <view class="section section_gap">
+        <view class="section_gap"></view>
+      </view>
     </form>
   </view>
 </view>
