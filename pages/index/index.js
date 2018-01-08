@@ -49,8 +49,21 @@ var pageObject = {
       { name: 'USA', value: '美国' },
       { name: 'CHN', value: '中国', checked: true },
     ],
+    hidden: false,
     focus: false,
     inputValue: '',
+  },
+  checkboxChange: function(e) {
+    var checked = e.detail.value;
+    var changed = {};
+    for(var i=0; i < this.data.checkboxItems.length; i++) {
+      if(checked.indexOf(this.data.checkboxItems[i].name) !== -1) {
+        changed['checkboxItems['+i+'].checked'] = true;
+      } else {
+        changed['checkboxItems['+i+'].checked'] = false;
+      }
+    }
+    this.setData(changed);
   },
   setDisabled: function (e) {
     this.setData({
