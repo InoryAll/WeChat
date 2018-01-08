@@ -65,6 +65,18 @@ var pageObject = {
     }
     this.setData(changed);
   },
+  radioChange: function(e) {
+    var checked = e.detail.value;
+    var changed = {};
+    for (var i = 0; i < this.data.radioItems.length; i++) {
+      if (checked.indexOf(this.data.radioItems[i].name) !== -1) {
+        changed['radioItems[' + i + '].checked'] = true;
+      } else {
+        changed['radioItems[' + i + '].checked'] = false;
+      }
+    }
+    this.setData(changed);
+  },
   setDisabled: function (e) {
     this.setData({
       disabled: !this.data.disabled
