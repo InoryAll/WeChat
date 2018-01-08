@@ -41,6 +41,14 @@ var pageObject = {
       { name: 'USA', value: '美国' },
       { name: 'CHN', value: '中国', checked: 'true' }
     ],
+    checkboxItems: [
+      { name: 'USA', value: '美国' },
+      { name: 'CHN', value: '中国', checked: true },
+    ],
+    radioItems: [
+      { name: 'USA', value: '美国' },
+      { name: 'CHN', value: '中国', checked: true },
+    ],
     focus: false,
     inputValue: '',
   },
